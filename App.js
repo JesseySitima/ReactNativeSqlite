@@ -1,32 +1,70 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { initDatabase } from './data/db';
-import AddScoreScreen from './screens/AddScoreScreen';
-import ViewScoresScreen from './screens/ViewScoreScreen';
+import { View, Text } from 'react-native';
+import React from 'react'
+import HomeScreen from './screens/HomeScreen';
+import AssessmentScreen from './screens/AssessmentScreen';
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import AddScoreScreen from './screens/AddScoreScreen';
 import { createStackNavigator } from '@react-navigation/stack';
 
+const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-export default function App() {
-  React.useEffect(() => {
-    initDatabase();
-  }, [])
+const screenOptions = {
+  tabBarStyle: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0,
+    elevation: 0,
+    height: 60,
+
+  }
+}
+const TabBarIcon = ({ name, color, size }) => {
+  return <Icon name={name} size={size} color={color} />;
+};
+
+const App = () => {
+  
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AddScore">
-        <Stack.Screen name="AddScore" component={AddScoreScreen} options={{ title: 'Add Score' }} />
-        <Stack.Screen name="ViewScores" component={ViewScoresScreen} options={{ title: 'View Scores' }} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Main"
+        options={{ headerShown: false }}
+      >
+        {() => (
+          <Tab.Navigator screenOptions={screenOptions}>
+            <Tab.Screen
+              name="Assessments"
+              component={HomeScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <TabBarIcon name="home" color={color} size={size} />
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="SkillChart"
+              component={AssessmentScreen}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <TabBarIcon name="bar-chart" color={color} size={size} />
+                ),
+              }}
+            />
+          </Tab.Navigator>
+        )}
+      </Stack.Screen>
+      <Stack.Screen
+        name="Other"
+        component={AddScoreScreen}
+        options={{ headerShown: false }} // Hide the header for this screen
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App
