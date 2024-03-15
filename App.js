@@ -7,6 +7,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AddScoreScreen from './screens/AddScoreScreen';
 import { createStackNavigator } from '@react-navigation/stack';
+import SkillChartScreen from './screens/SkillChartScreen';
+import AssessmentWeekScreen from './screens/AssessmentWeekScreen';
+import QuizPage from './screens/QuizPage';
+import AssessmentSectionScreen from './screens/AssessmentSectionScreen';
+import AssessmentScoreScreen from './screens/AssessmentScoreScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -47,7 +52,7 @@ const App = () => {
             />
             <Tab.Screen
               name="SkillChart"
-              component={AssessmentScreen}
+              component={SkillChartScreen}
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <TabBarIcon name="bar-chart" color={color} size={size} />
@@ -58,10 +63,31 @@ const App = () => {
         )}
       </Stack.Screen>
       <Stack.Screen
-        name="Other"
+        name="AddScoreScreen"
         component={AddScoreScreen}
         options={{ headerShown: false }} // Hide the header for this screen
       />
+      <Stack.Screen
+        name="Assessment"
+        component={AssessmentScreen}
+      />
+      <Stack.Screen
+        name="AssessmentWeek"
+        component={AssessmentWeekScreen}
+      />
+      <Stack.Screen
+        name="AssessmentSection"
+        component={AssessmentSectionScreen}
+      />
+      <Stack.Screen
+        name="QuizPage"
+        component={QuizPage}
+      />
+      <Stack.Screen
+        name="AsssessmentScore"
+        component={AssessmentScoreScreen}
+      />
+  
     </Stack.Navigator>
   </NavigationContainer>
   )

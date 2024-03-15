@@ -1,0 +1,63 @@
+{
+    "Standard 1": {
+      "Sample A": {
+        "Week 1": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 2": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 3": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        }
+      },
+      "Sample B": {
+        "Week 1": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 2": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 3": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        }
+      }
+    },
+    "Standard 2": {
+      "Sample A": {
+        "Week 1": {
+          "sounds": ["banaba", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 2": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 3": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        }
+      },
+      "Sample B": {
+        "Week 1": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 2": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        },
+        "Week 3": {
+          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
+          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        }
+      }
+    }
+  }
+  
