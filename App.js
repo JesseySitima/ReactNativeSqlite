@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import React from 'react'
+import React, { useEffect } from 'react';
 import HomeScreen from './screens/HomeScreen';
 import AssessmentScreen from './screens/AssessmentScreen';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,6 +12,12 @@ import AssessmentWeekScreen from './screens/AssessmentWeekScreen';
 import QuizPage from './screens/QuizPage';
 import AssessmentSectionScreen from './screens/AssessmentSectionScreen';
 import AssessmentScoreScreen from './screens/AssessmentScoreScreen';
+import { initializeDatabase } from './data/db';
+import AssessmentResults from './screens/AssessmentResults';
+import Standard1SampleA from './screens/skillcharts/Standard1SampleA';
+import Standard2SampleA from './screens/skillcharts/Standard2SampleA';
+import Standard2SampleB from './screens/skillcharts/Standard2SampleB';
+import Standard1SampleB from './screens/skillcharts/Standard1SampleB';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,6 +37,10 @@ const TabBarIcon = ({ name, color, size }) => {
 };
 
 const App = () => {
+
+  useEffect(() => {
+    initializeDatabase(); // Call initializeDatabase when the component mounts
+  }, []);
   
   return (
     <NavigationContainer>
@@ -86,6 +96,22 @@ const App = () => {
       <Stack.Screen
         name="AsssessmentScore"
         component={AssessmentScoreScreen}
+      />
+      <Stack.Screen
+        name="Standard1ASkillChart"
+        component={Standard1SampleA}
+      />
+      <Stack.Screen
+        name="Standard1BSkillChart"
+        component={Standard1SampleB}
+      />
+      <Stack.Screen
+        name="Standard2ASkillChart"
+        component={Standard2SampleA}
+      />
+      <Stack.Screen
+        name="Standard2BSkillChart"
+        component={Standard2SampleB}
       />
   
     </Stack.Navigator>

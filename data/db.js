@@ -1,13 +1,21 @@
 import * as SQLite from 'expo-sqlite';
 
-const db = SQLite.openDatabase('studentScores.db');
+const db = SQLite.openDatabase('studentsAssessmentScores.db');
 
-export const initDatabase = () => {
-    db.transaction((tx) => {
-        tx.executeSql(
-            'CREATE TABLE IF NOT EXISTS scores (id INTEGER PRIMARY KEY NOT NULL, name TEXT, score INTEGER)'
-        );
-    });
+const initializeDatabase = () => {
+  db.transaction(tx => {
+    tx.executeSql(
+      `CREATE TABLE IF NOT EXISTS assessmentData (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        standard TEXT,
+        sample TEXT,
+        weekKey TEXT,
+        type TEXT,
+        score INTEGER,
+        totalQuestions INTEGER
+      );`
+    );
+  });
 };
 
-export default db;
+export { db, initializeDatabase };

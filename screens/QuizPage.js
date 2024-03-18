@@ -7,7 +7,7 @@ const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
 
 const QuizPage = ({ route }) => {
-  const { type, data } = route.params;
+  const { type, data, standard, sample, weekKey } = route.params;
   const totalQuestions = data.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -20,7 +20,7 @@ const QuizPage = ({ route }) => {
     if (currentIndex < data.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      navigation.navigate('AsssessmentScore', { score, totalQuestions })
+      navigation.navigate('AsssessmentScore', { score, totalQuestions, standard, sample, weekKey })
     }
   };
 
