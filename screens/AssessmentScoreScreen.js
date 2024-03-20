@@ -4,37 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import { db } from '../data/db';
 
 const AssessmentScoreScreen = ({ route }) => {
-  const { score, totalQuestions, standard, sample, weekKey } = route.params;
+  const { score, totalQuestions, standard, sample, weekKey, studentName, sections } = route.params;
   const navigation = useNavigation();
 
   const nextButton = async () => {
-    try {
-      // Store data into SQLite database
-      await new Promise((resolve, reject) => {
-        db.transaction(
-          tx => {
-            tx.executeSql(
-              'INSERT INTO assessmentData (standard, sample, weekKey, type, score, totalQuestions) VALUES (?, ?, ?, ?, ?, ?)',
-              [standard, sample, weekKey, 'score', score, totalQuestions],
-              (_, { rowsAffected }) => {
-                if (rowsAffected > 0) {
-                  console.log('Data inserted successfully:', { standard, sample, weekKey, type: 'score', score, totalQuestions });
-                  resolve();
-                } else {
-                  reject(new Error('Failed to insert data'));
-                }
-              },
-              (_, error) => reject(error)
-            );
-          },
-          error => console.error('Transaction error:', error)
-        );
-      });
-  
-      navigation.navigate('AssessmentSection', { standard, sample, weekKey });
-    } catch (error) {
-      console.error('Error inserting data:', error);
-    }
+      navigation.navigate('AssessmentSection', { standard, sample, weekKey, sections });
+   
   };
   
 

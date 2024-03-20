@@ -1,61 +1,181 @@
 {
     "Standard 1": {
       "Sample A": {
-        "Week 1": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 1-5": {
+          "Maina a Malembo": ["A", "m", "N", "u", "K"],
+          "Maliwu": ["O", "m", "n", "u", "K"],
+          "Maphatikizo": ["Ma", "ni", "ko", "la", "nu"],
+          "Mawu": ["Luma", "amama", "kola", "muka", "Akukoka"]
         },
-        "Week 2": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 5-10": {
+          "Maina a Malembo": ["E", "T", "u", "P", "W"],
+          "Maliwu": ["a", "d", "n", "ch", "Nd"],
+          "Maphatikizo": ["Se", "chu", "tu", "ndo", "mi"],
+          "Mawu": ["Ndowa", "zako", "tema", "chule", "kulima"]
         },
-        "Week 3": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 10-15": {
+          "Maina a Malembo": ["Y", "k", "Z", "j", "R"],
+          "Maliwu": ["S", "p", "t", "b", "f"],
+          "Maphatikizo": ["Mu", "ya", "zo", "nda", "we"],
+          "Mawu": ["Lero", "hamala", "anagona", "pita", "genda"]
+        },
+        "Week 15-20": {
+          "Maina a Malembo": ["F", "v", "H", "s", "B"],
+          "Maliwu": ["m", "dz", "kw", "z", "th"],
+          "Maphatikizo": ["Pa", "vo", "mbe", "tsa", "Chu"],
+          "Mawu": ["Dzira", "chigafa", "kwathu", "yandama", "watopa"]
+        },
+        "Week 20-25": {
+          "Maina a Malembo": ["P", "r", "y", "L", "D"],
+          "Maliwu": ["O", "ns", "bw", "g", "nj"],
+          "Maphatikizo": ["Bo", "nyu", "mto", "cha", "nga"],
+          "Mawu": ["Mpando", "mtengo", "bwato", "thuvula", "nyakwawa"]
+        },
+        "Week 25-30": {
+          "Maina a Malembo": ["G", "v", "F", "e", "T"],
+          "Maliwu": ["I", "nd", "gw", "nz", "ng’"],
+          "Maphatikizo": ["Bwa", "mlo", "mwi", "kho", "Thu"],
+          "Mawu": ["Fwamba", "dzola", "mlimi", "Nsanza", "Dwazika"]
+        },
+        "Week 30-35": {
+          "Maina a Malembo": ["W", "r", "Y", "d", "J"],
+          "Maliwu": ["Mv", "mk", "ts", "fw", "Nj"],
+          "Maphatikizo": ["Mti", "gwi", "kwa", "phu", "Swe"],
+          "Mawu": ["mpira", "dyetsa", "mkunguza", "swera", "Phuma"]
         }
       },
       "Sample B": {
-        "Week 1": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "week 1-5": {
+          "Maina a Malembo": ["A", "m", "N", "U", "K"],
+          "Maliwu": ["O", "m", "n", "U", "k"],
+          "Maphatikizo": ["Ma", "ni", "ko", "La", "nu"],
+          "Mawu": ["Luma", "amama", "kola", "Muka", "Akukoka"]
         },
-        "Week 2": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 5-10": {
+          "Maina a Malembo": ["E", "T", "u", "P", "W"],
+          "Maliwu": ["A", "d", "n", "ch", "Nd"],
+          "Maphatikizo": ["Se", "chu", "tu", "ndo", "mi"],
+          "Mawu": ["Ndowa", "zako", "tema", "chule", "kulima"]
         },
-        "Week 3": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 10-15": {
+          "Maina a Malembo": ["Y", "k", "Z", "j", "R"],
+          "Maliwu": ["S", "p", "t", "b", "f"],
+          "Maphatikizo": ["Mu", "ya", "zo", "nda", "we"],
+          "Mawu": ["Lero", "hamala", "anagona", "pita", "genda"]
+        },
+        "Week 15-20": {
+          "Maina a Malembo": ["F", "v", "H", "s", "B"],
+          "Maliwu": ["M", "dz", "kw", "z", "th"],
+          "Maphatikizo": ["pa", "tsa", "mbe", "vo", "Chu"],
+          "Mawu": ["Kwathu", "watopa", "Dzira", "yandama", "chigafa"]
+        },
+        "Week 20-25": {
+          "Maina a Malembo": ["Y", "r", "P", "L", "D"],
+          "Maliwu": ["bw", "nj", "O", "g", "ns"],
+          "Maphatikizo": ["cha", "nyu", "nga", "Bo", "mto"],
+          "Mawu": ["bwato", "mtengo", "Mpando", "thuvula", "nyakwawa"]
+        },
+        "Week 25-30": {
+          "Maina a Malembo": ["F", "e", "G", "v", "T"],
+          "Maliwu": ["Nd", "I", "ng’", "nz", "gw"],
+          "Maphatikizo": ["mlo", "Bwa", "kho", "mwi", "Thu"],
+          "Mawu": ["mlimi", "Nsanza", "Fwamba", "dzola", "Dwazika"]
+        },
+        "Week 30-35": {
+          "Maina a Malembo": ["Y", "r", "w", "J", "D"],
+          "Maliwu": ["Ts", "fw", "nj", "mv", "mk"],
+          "Maphatikizo": ["gwi", "phu", "mti", "Swe", "kwa"],
+          "Mawu": ["Dyetsa", "swera", "mpira", "Phuma", "mkunguza"]
         }
       }
     },
     "Standard 2": {
       "Sample A": {
-        "Week 1": {
-          "sounds": ["banaba", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 1-5": {
+          "Maina a Malembo": ["A", "m", "N", "u", "K"],
+          "Maliwu": ["O", "m", "n", "u", "K"],
+          "Maphatikizo": ["Ma", "ni", "ko", "la", "nu"],
+          "Mawu": ["Luma", "amama", "kola", "muka", "Akukoka"]
         },
-        "Week 2": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 5-10": {
+          "Maina a Malembo": ["E", "T", "u", "P", "W"],
+          "Maliwu": ["a", "d", "n", "ch", "Nd"],
+          "Maphatikizo": ["Se", "chu", "tu", "ndo", "mi"],
+          "Mawu": ["Ndowa", "zako", "tema", "chule", "kulima"]
         },
-        "Week 3": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 10-15": {
+          "Maina a Malembo": ["Y", "k", "Z", "j", "R"],
+          "Maliwu": ["S", "p", "t", "b", "f"],
+          "Maphatikizo": ["Mu", "ya", "zo", "nda", "we"],
+          "Mawu": ["Lero", "hamala", "anagona", "pita", "genda"]
+        },
+        "Week 15-20": {
+          "Maina a Malembo": ["F", "v", "H", "s", "B"],
+          "Maliwu": ["m", "dz", "kw", "z", "th"],
+          "Maphatikizo": ["Pa", "vo", "mbe", "tsa", "Chu"],
+          "Mawu": ["Dzira", "chigafa", "kwathu", "yandama", "watopa"]
+        },
+        "Week 20-25": {
+          "Maina a Malembo": ["P", "r", "y", "L", "D"],
+          "Maliwu": ["O", "ns", "bw", "g", "nj"],
+          "Maphatikizo": ["Bo", "nyu", "mto", "cha", "nga"],
+          "Mawu": ["Mpando", "mtengo", "bwato", "thuvula", "nyakwawa"]
+        },
+        "Week 25-30": {
+          "Maina a Malembo": ["G", "v", "F", "e", "T"],
+          "Maliwu": ["I", "nd", "gw", "nz", "ng’"],
+          "Maphatikizo": ["Bwa", "mlo", "mwi", "kho", "Thu"],
+          "Mawu": ["Fwamba", "dzola", "mlimi", "Nsanza", "Dwazika"]
+        },
+        "Week 30-35": {
+          "Maina a Malembo": ["W", "r", "Y", "d", "J"],
+          "Maliwu": ["Mv", "mk", "ts", "fw", "Nj"],
+          "Maphatikizo": ["Mti", "gwi", "kwa", "phu", "Swe"],
+          "Mawu": ["mpira", "dyetsa", "mkunguza", "swera", "Phuma"]
         }
       },
       "Sample B": {
-        "Week 1": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "week 1-5": {
+          "Maina a Malembo": ["A", "m", "N", "U", "K"],
+          "Maliwu": ["O", "m", "n", "U", "k"],
+          "Maphatikizo": ["Ma", "ni", "ko", "La", "nu"],
+          "Mawu": ["Luma", "amama", "kola", "Muka", "Akukoka"]
         },
-        "Week 2": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 5-10": {
+          "Maina a Malembo": ["E", "T", "u", "P", "W"],
+          "Maliwu": ["A", "d", "n", "ch", "Nd"],
+          "Maphatikizo": ["Se", "chu", "tu", "ndo", "mi"],
+          "Mawu": ["Ndowa", "zako", "tema", "chule", "kulima"]
         },
-        "Week 3": {
-          "sounds": ["sound1", "sound2", "sound3", "sound4", "sound5", "sound6", "sound7", "sound8", "sound9", "sound10"],
-          "letters": ["letter1", "letter2", "letter3", "letter4", "letter5", "letter6", "letter7", "letter8", "letter9", "letter10"]
+        "Week 10-15": {
+          "Maina a Malembo": ["Y", "k", "Z", "j", "R"],
+          "Maliwu": ["S", "p", "t", "b", "f"],
+          "Maphatikizo": ["Mu", "ya", "zo", "nda", "we"],
+          "Mawu": ["Lero", "hamala", "anagona", "pita", "genda"]
+        },
+        "Week 15-20": {
+          "Maina a Malembo": ["F", "v", "H", "s", "B"],
+          "Maliwu": ["M", "dz", "kw", "z", "th"],
+          "Maphatikizo": ["pa", "tsa", "mbe", "vo", "Chu"],
+          "Mawu": ["Kwathu", "watopa", "Dzira", "yandama", "chigafa"]
+        },
+        "Week 20-25": {
+          "Maina a Malembo": ["Y", "r", "P", "L", "D"],
+          "Maliwu": ["bw", "nj", "O", "g", "ns"],
+          "Maphatikizo": ["cha", "nyu", "nga", "Bo", "mto"],
+          "Mawu": ["bwato", "mtengo", "Mpando", "thuvula", "nyakwawa"]
+        },
+        "Week 25-30": {
+          "Maina a Malembo": ["F", "e", "G", "v", "T"],
+          "Maliwu": ["Nd", "I", "ng’", "nz", "gw"],
+          "Maphatikizo": ["mlo", "Bwa", "kho", "mwi", "Thu"],
+          "Mawu": ["mlimi", "Nsanza", "Fwamba", "dzola", "Dwazika"]
+        },
+        "Week 30-35": {
+          "Maina a Malembo": ["Y", "r", "w", "J", "D"],
+          "Maliwu": ["Ts", "fw", "nj", "mv", "mk"],
+          "Maphatikizo": ["gwi", "phu", "mti", "Swe", "kwa"],
+          "Mawu": ["Dyetsa", "swera", "mpira", "Phuma", "mkunguza"]
         }
       }
     }

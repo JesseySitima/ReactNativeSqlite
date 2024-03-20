@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native';
+
 import React, { useEffect } from 'react';
 import HomeScreen from './screens/HomeScreen';
 import AssessmentScreen from './screens/AssessmentScreen';
@@ -18,6 +18,7 @@ import Standard1SampleA from './screens/skillcharts/Standard1SampleA';
 import Standard2SampleA from './screens/skillcharts/Standard2SampleA';
 import Standard2SampleB from './screens/skillcharts/Standard2SampleB';
 import Standard1SampleB from './screens/skillcharts/Standard1SampleB';
+import StudentInputScreen from './screens/StudentInputScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -113,6 +114,12 @@ const App = () => {
         name="Standard2BSkillChart"
         component={Standard2SampleB}
       />
+      <Stack.Screen
+        name='StudentInputScreen'
+        component={StudentInputScreen}
+      >
+
+      </Stack.Screen>
   
     </Stack.Navigator>
   </NavigationContainer>

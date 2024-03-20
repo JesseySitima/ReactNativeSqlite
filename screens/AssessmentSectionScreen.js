@@ -6,37 +6,36 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Card, Title } from 'react-native-paper';
 
 const AssessmentSectionScreen = ({ route }) => {
-  const { standard, sample, weekKey } = route.params;
-  const { sounds, letters } = jsonData[standard][sample][weekKey];
+  const { standard, sample, weekKey, sections, studentName } = route.params;
   const navigation = useNavigation();
 
-  const handleCardPress = (type) => {
+  const handleSubItemClick = (sectionKey) => {
     navigation.navigate('QuizPage', {
-      type,
-      data: type === 'sounds' ? sounds : letters,
       standard,
       sample,
-      weekKey
+      weekKey,
+      sectionKey,
+      studentName,
+      sections,
+      items: jsonData[standard][sample][weekKey][sectionKey],
     });
   };
 
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => handleCardPress('sounds')}>
-        <Card style={styles.cardContainer}>
-          <Card.Content>
-            <Title>Sounds</Title>
-          </Card.Content>
-        </Card>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => handleCardPress('letters')}>
-        <Card style={styles.cardContainer}>
-          <Card.Content>
-            <Title>Letters</Title>
-          </Card.Content>
-        </Card>
-      </TouchableOpacity>
+      <Text>{`${standard} ${sample} ${weekKey}`}</Text>
+      {Object.keys(sections).map((sectionKey, index) => (
+        <TouchableOpacity
+          key={index}
+          onPress={() => handleSubItemClick(sectionKey)}
+        >
+          <Card style={styles.cardContainer}>
+            <Card.Content>
+              <Title>{sectionKey}</Title>
+            </Card.Content>
+          </Card>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 };
