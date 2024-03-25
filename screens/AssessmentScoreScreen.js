@@ -4,12 +4,86 @@ import { useNavigation } from '@react-navigation/native';
 import { db } from '../data/db';
 
 const AssessmentScoreScreen = ({ route }) => {
-  const { score, totalQuestions, standard, sample, weekKey, studentName, sections } = route.params;
+  const { score, totalQuestions, standard, sample, weekKey, studentName, sections, sectionKey } = route.params;
   const navigation = useNavigation();
 
   const nextButton = async () => {
-      navigation.navigate('AssessmentSection', { standard, sample, weekKey, sections });
-   
+    // Save the assessment score in the database
+    await saveAssessmentScore();
+
+    navigation.navigate('AssessmentSection', { standard, sample, weekKey, sections, studentName });
+  };
+
+  const sectionKeyToColumnName = {
+    'Maina a Malembo': 'MainaAMalemboScore',
+    'Maliwu': 'MaliwuScore',
+    'Maphatikizo': 'MaphatikizoScore',
+    'Mawu': 'MawuScore'
+  };
+  
+  const columnName = sectionKeyToColumnName[sectionKey];
+
+  const saveAssessmentScore = async () => {
+    const columnName = sectionKeyToColumnName[sectionKey];
+  
+    db.transaction(
+      tx => {
+        tx.executeSql(
+          `SELECT * FROM assessmentsScores
+           WHERE 
+             standard = ? 
+             AND sample = ? 
+             AND weekKey = ? 
+             AND studentName = ?;`,
+          [standard, sample, weekKey, studentName],
+          (_, { rows }) => {
+            if (rows.length > 0) {
+              // Row exists, update it
+              const updateStatement = `UPDATE assessmentsScores 
+                                       SET 
+                                         ${columnName} = IFNULL(${columnName}, 0) + ?,
+                                         totalScore = IFNULL(totalScore, 0) + ?,
+                                         totalQuestions = IFNULL(totalQuestions, 0) + ?
+                                       WHERE 
+                                         standard = ? 
+                                         AND sample = ? 
+                                         AND weekKey = ? 
+                                         AND studentName = ?;`;
+              tx.executeSql(
+                updateStatement,
+                [score, score, totalQuestions, standard, sample, weekKey, studentName],
+                (_, result) => {
+                  console.log('Assessment score updated successfully');
+                },
+                (_, error) => {
+                  console.error('Failed to update assessment score', error);
+                }
+              );
+            } else {
+              // Row does not exist, insert a new row
+              const insertStatement = `INSERT INTO assessmentsScores 
+                                        (standard, sample, weekKey, studentName, ${columnName}, totalScore, totalQuestions) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?);`;
+              tx.executeSql(
+                insertStatement,
+                [standard, sample, weekKey, studentName, score, score, totalQuestions],
+                (_, result) => {
+                  console.log('Assessment score saved successfully');
+                },
+                (_, error) => {
+                  console.error('Failed to save assessment score', error);
+                }
+              );
+            }
+          },
+          (_, error) => {
+            console.error('Failed to check if row exists', error);
+          }
+        );
+      },
+      null,
+      null
+    );
   };
   
 

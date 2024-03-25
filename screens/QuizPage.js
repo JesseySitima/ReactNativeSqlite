@@ -10,6 +10,7 @@ const QuizPage = ({ route }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const navigation = useNavigation();
+  const totalQuestions = items.length;
 
   const handleAnswer = (isCorrect) => {
     if (isCorrect) {
@@ -19,7 +20,7 @@ const QuizPage = ({ route }) => {
       setCurrentIndex(currentIndex + 1);
     } else {
       // End of quiz
-      navigation.navigate('AsssessmentScore', { score, standard, sample, weekKey, sectionKey, studentName, sections });
+      navigation.navigate('AsssessmentScore', { score, standard, sample, weekKey, sectionKey, studentName, sections, totalQuestions });
     }
   };
 
