@@ -23,7 +23,7 @@ const AssessmentSectionScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{`${standard} ${sample} ${weekKey}`}</Text>
+      <Text style={styles.title}>{`${standard} ${sample} ${weekKey}`}</Text>
       {Object.keys(sections).map((sectionKey, index) => (
         <TouchableOpacity
           key={index}
@@ -49,5 +49,8 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginTop: 10
+  },
+  title: {
+    fontSize: 18,
   }
 });

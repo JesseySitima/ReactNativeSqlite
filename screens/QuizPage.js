@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Dimensions } from 'react-native';
+
 
 
 
@@ -10,6 +10,7 @@ const QuizPage = ({ route }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const navigation = useNavigation();
+  const [isFinished, setIsFinished] = useState(false);
   const totalQuestions = items.length;
 
   const handleAnswer = (isCorrect) => {

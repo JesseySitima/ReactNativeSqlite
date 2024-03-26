@@ -11,7 +11,7 @@ const SkillChartScreen = () => {
     navigation.navigate('Standard1ASkillChart')
   }
   const std1BButton = () => {
-    navigation.navigate('Standard1BSkillChar')
+    navigation.navigate('Standard1BSkillChart')
   }
   const std2AButton = () => {
     navigation.navigate('Standard2ASkillChart')

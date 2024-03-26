@@ -21,7 +21,7 @@ const AssessmentWeekScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>{`${standard} ${sample}`}</Text>
+      <Text style={styles.title}>{`${standard} ${sample}`}</Text>
       {weeks.map(weekKey => (
         <TouchableOpacity
           key={weekKey}
@@ -47,5 +47,8 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     marginTop: 10
+  },
+  title: {
+    fontSize: 18,
   }
 })

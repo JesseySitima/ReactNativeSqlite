@@ -30,7 +30,7 @@ const StudentInputScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <Text>Enter Student Name to Assess:</Text>
+      <Text style={styles.title}>Enter Student Name to Assess:</Text>
       <TextInput
         style={styles.input}
         onChangeText={handleInputChange}
@@ -70,6 +70,9 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
   },
+  title: {
+    fontSize: 18,
+  }
 });
 
 export default StudentInputScreen;
