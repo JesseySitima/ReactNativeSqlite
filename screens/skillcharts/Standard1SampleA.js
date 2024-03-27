@@ -2,7 +2,9 @@ import { StyleSheet, Text, View, TextInput, Image } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { db } from '../../data/db';
 import { Table, Row } from 'react-native-table-component';
-import databaaseImage from '../../assets/database.jpg'
+import databaaseImage from '../../assets/database.jpg';
+
+
 
 const Standard1SampleA = () => {
   const [scores, setScores] = useState([]);
@@ -35,9 +37,6 @@ const Standard1SampleA = () => {
 
     fetchScores();
   }, [searchTerm]);
-
-
-
 
   return (
     <View style={styles.container}>

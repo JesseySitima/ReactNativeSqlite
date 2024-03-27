@@ -19,6 +19,9 @@ const SkillChartScreen = () => {
   const std2BButton = () => {
     navigation.navigate('Standard2BSkillChart')
   }
+  const allButton = () => {
+    navigation.navigate('allScoreScreen')
+  }
 
   return (
     <View style={styles.container}>
@@ -51,6 +54,14 @@ const SkillChartScreen = () => {
           <Card.Content>
             <Title>Standard 2 Skill Chart</Title>
             <Paragraph>Sample B</Paragraph>
+          </Card.Content>
+        </Card>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={allButton}>
+        <Card style={styles.cardContainer}>
+          <Card.Content>
+            <Title>All Skill Chart</Title>
+            <Paragraph>Sample A and B</Paragraph>
           </Card.Content>
         </Card>
       </TouchableOpacity>

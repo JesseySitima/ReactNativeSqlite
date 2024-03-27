@@ -6,7 +6,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Card, Title } from 'react-native-paper';
 
 const AssessmentSectionScreen = ({ route }) => {
-  const { standard, sample, weekKey, sections, studentName } = route.params;
+  const { standard, sample, weekKey, sections, studentName, teacherName } = route.params;
   const navigation = useNavigation();
 
   const handleSubItemClick = (sectionKey) => {
@@ -16,6 +16,7 @@ const AssessmentSectionScreen = ({ route }) => {
       weekKey,
       sectionKey,
       studentName,
+      teacherName,
       sections,
       items: jsonData[standard][sample][weekKey][sectionKey],
     });

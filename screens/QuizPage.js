@@ -3,10 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
-
-
 const QuizPage = ({ route }) => {
-  const { standard, sample, weekKey, sectionKey, studentName, sections, items } = route.params;
+  const { standard, sample, weekKey, sectionKey, studentName, teacherName, sections, items } = route.params;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const navigation = useNavigation();
@@ -21,7 +19,7 @@ const QuizPage = ({ route }) => {
       setCurrentIndex(currentIndex + 1);
     } else {
       // End of quiz
-      navigation.navigate('AsssessmentScore', { score, standard, sample, weekKey, sectionKey, studentName, sections, totalQuestions });
+      navigation.navigate('AsssessmentScore', { score, standard, sample, weekKey, sectionKey, studentName, teacherName, sections, totalQuestions });
     }
   };
 
@@ -29,7 +27,7 @@ const QuizPage = ({ route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.headingContainer}>
-        <Text style={styles.title}>Assessing {studentName} on {sectionKey} </Text>
+        <Text style={styles.title}>Assessing {studentName} on {sectionKey}</Text>
       </View>
       
       <View style={styles.quizSection}>
@@ -38,10 +36,10 @@ const QuizPage = ({ route }) => {
 
       <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.correctButton} onPress={() => handleAnswer(true)}>
-            <Text>Correct</Text>
+            <Text style={styles.btnText}>Correct</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.wrongButton} onPress={() => handleAnswer(false)}>
-            <Text>Wrong</Text>
+            <Text style={styles.btnText}>Wrong</Text>
           </TouchableOpacity>
       </View>
     </View>
@@ -70,7 +68,8 @@ headingContainer: {
   titleText: {
     flex: 1,
     textAlign: 'center',
-    fontSize: 50,
+    fontSize: 80,
+    fontWeight: 'bold'
   },
   buttonContainer: {
     marginTop: 20,
@@ -81,21 +80,22 @@ headingContainer: {
     backgroundColor: 'green',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
+    borderRadius: 50,
     marginRight: 10,
-    width: '100%',
+    width: '50%',
   },
   wrongButton: {
     marginTop: 20,
     backgroundColor: 'red',
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: 5,
-    width: '100%',
+    borderRadius: 50,
+    width: '50%',
   },
-  buttonText: {
+  btnText: {
     color: 'white',
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
 });

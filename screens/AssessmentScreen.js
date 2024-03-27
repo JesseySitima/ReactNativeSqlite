@@ -16,6 +16,8 @@ const AssessmentScreen = () => {
   };
 
   return (
+    <View>
+      <Text style={styles.title}>Assessments</Text>
     <ScrollView contentContainerStyle={styles.container}>
       {Object.keys(jsonData).map((standardKey) =>
         Object.keys(jsonData[standardKey]).map((sampleKey) => (
@@ -33,6 +35,7 @@ const AssessmentScreen = () => {
         ))
       )}
     </ScrollView>
+    </View>
   );
 };
 
@@ -45,4 +48,10 @@ const styles = StyleSheet.create({
   cardContainer: {
     marginTop: 20,
   },
+  title: {
+    marginTop: 40,
+    fontSize: 20, 
+    textAlign: 'center',
+    fontWeight: 'bold'
+  }
 });

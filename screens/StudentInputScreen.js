@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import jsonData from '../data/data.json'
 
 const StudentInputScreen = ({ route }) => {
-  const { standard, sample, weekKey, sections } = route.params;
+  const { standard, sample, weekKey, sections, teacherName } = route.params;
   const navigation = useNavigation();
   const [studentName, setStudentName] = useState('');
 
@@ -23,6 +23,7 @@ const StudentInputScreen = ({ route }) => {
         sample,
         weekKey,
         sections: jsonData[standard][sample][weekKey],
+        teacherName,
         studentName,
       });
       setStudentName('');
@@ -38,7 +39,7 @@ const StudentInputScreen = ({ route }) => {
         placeholder="Enter student name"
       />
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Submit</Text>
+        <Text style={styles.buttonText}>Continue</Text>
       </TouchableOpacity>
     </View>
   );

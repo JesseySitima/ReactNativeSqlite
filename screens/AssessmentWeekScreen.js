@@ -11,7 +11,7 @@ const AssessmentWeekScreen = ({ route }) => {
   const weeks = Object.keys(jsonData[standard][sample]);
 
   const handleWeekPress = (weekKey) => {
-    navigation.navigate('StudentInputScreen', {
+    navigation.navigate('TeacherInputScreen', {
       standard,
       sample,
       weekKey,

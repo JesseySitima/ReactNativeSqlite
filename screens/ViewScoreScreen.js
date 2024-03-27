@@ -1,47 +1,79 @@
-import React, { useEffect, useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
-import db from '../data/db';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { db } from '../data/db';
 
 export default function ViewScoreScreen() {
-    const [scores, setScores] = useState([]);
+    const [assessmentScores, setAssessmentScores] = useState([]);
 
-    useEffect(() => {
-        db.transaction((tx) => {
-            tx.executeSql('SELECT name, score FROM scores;', [], (_, { rows }) => {
-                console.log("Rows:", rows);
-                if (rows && rows.length > 0) {
-                    let scoresArray = [];
-                    for (let i = 0; i < rows.length; i++) {
-                        scoresArray.push(rows.item(i));
-                    }
-                    setScores(scoresArray);
-                }
-            }, (tx, error) => {
-                console.error("Error executing SQL:", error);
-            });
-        });
-    }, []);
+  useEffect(() => {
+    const fetchAssessmentScores = async () => {
+      db.transaction(
+        tx => {
+          tx.executeSql(
+            'SELECT * FROM assessmentsScores;',
+            [],
+            (_, { rows }) => {
+              setAssessmentScores(rows._array);
+            },
+            (_, error) => {
+              console.error('Failed to fetch assessment scores', error);
+            }
+          );
+        },
+        null,
+        null
+      );
+    };
 
-    return (
-        <View style={styles.container}>
-            {scores.length > 0 ? (
-                scores.map((score, index) => (
-                    <View key={index}>
-                        <Text>Name: {score.name}</Text>
-                        <Text>Score: {score.score}</Text>
-                    </View>
-                ))
-            ) : (
-                <Text>No scores available in the database.</Text>
-            )}
-        </View>
-    );
-}
+    fetchAssessmentScores();
+  }, []);
+
+  const renderScoreItem = ({ item }) => (
+    <View style={styles.item}>
+      <Text>Student Name: {item.studentName}</Text>
+      <Text>Teacher Name: {item.teacherName}</Text>
+      <Text>Standard: {item.standard}</Text>
+      <Text>Sample: {item.sample}</Text>
+      <Text>Week Key: {item.weekKey}</Text>
+      <Text>Maina a Malembo Score: {item.MainaAMalemboScore}</Text>
+      <Text>Maliwu Score: {item.MaliwuScore}</Text>
+      <Text>Maphatikizo Score: {item.MaphatikizoScore}</Text>
+      <Text>Mawu Score: {item.MawuScore}</Text>
+      <Text>Total Score: {item.totalScore}</Text>
+      <Text>Total Questions: {item.totalQuestions}</Text>
+    </View>
+  );
+
+  return (
+    <View style={styles.container}>
+      {assessmentScores.length > 0 ? (
+        <FlatList
+          data={assessmentScores}
+          renderItem={renderScoreItem}
+          keyExtractor={(item) => item.id.toString()}
+        />
+      ) : (
+        <Text>No assessment scores found.</Text>
+      )}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  item: {
+    marginBottom: 10,
+    padding: 10,
+    backgroundColor: '#f9f9f9',
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 5,
+  },
 });
+
+
