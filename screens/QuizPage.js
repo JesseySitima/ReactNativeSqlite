@@ -19,9 +19,11 @@ const QuizPage = ({ route }) => {
       setCurrentIndex(currentIndex + 1);
     } else {
       // End of quiz
-      navigation.navigate('AsssessmentScore', { score, standard, sample, weekKey, sectionKey, studentName, teacherName, sections, totalQuestions });
+      const updatedScore = isCorrect ? score + 1 : score;
+      navigation.navigate('AsssessmentScore', { score: updatedScore, standard, sample, weekKey, sectionKey, studentName, teacherName, sections, totalQuestions });
     }
   };
+  
 
   
   return (

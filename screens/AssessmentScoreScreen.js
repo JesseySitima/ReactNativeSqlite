@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { db } from '../data/db';
 
 const AssessmentScoreScreen = ({ route }) => {
-  const { score, totalQuestions, standard, sample, weekKey, studentName, sections, sectionKey } = route.params;
+  const { score, totalQuestions, standard, sample, weekKey, studentName, teacherName, sections, sectionKey } = route.params;
   const navigation = useNavigation();
 
   const nextButton = async () => {
@@ -29,7 +29,7 @@ const AssessmentScoreScreen = ({ route }) => {
     db.transaction(
       tx => {
         tx.executeSql(
-          `SELECT * FROM assessmentsScores
+          `SELECT * FROM carAppScores
            WHERE 
              standard = ? 
              AND sample = ? 
@@ -39,7 +39,7 @@ const AssessmentScoreScreen = ({ route }) => {
           (_, { rows }) => {
             if (rows.length > 0) {
               // Row exists, update it
-              const updateStatement = `UPDATE assessmentsScores 
+              const updateStatement = `UPDATE carAppScores 
                                        SET 
                                          ${columnName} = IFNULL(${columnName}, 0) + ?,
                                          totalScore = IFNULL(totalScore, 0) + ?,
@@ -61,12 +61,12 @@ const AssessmentScoreScreen = ({ route }) => {
               );
             } else {
               // Row does not exist, insert a new row
-              const insertStatement = `INSERT INTO assessmentsScores 
-                                        (standard, sample, weekKey, studentName, ${columnName}, totalScore, totalQuestions) 
-                                        VALUES (?, ?, ?, ?, ?, ?, ?);`;
+              const insertStatement = `INSERT INTO carAppScores 
+                                        (standard, sample, weekKey, studentName, teacherName, ${columnName}, totalScore, totalQuestions) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
               tx.executeSql(
                 insertStatement,
-                [standard, sample, weekKey, studentName, score, score, totalQuestions],
+                [standard, sample, weekKey, studentName, teacherName, score, score, totalQuestions],
                 (_, result) => {
                   console.log('Assessment score saved successfully');
                 },

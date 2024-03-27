@@ -1,52 +1,83 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Table, Row } from 'react-native-table-component';
 import { db } from '../../data/db';
 
 const Group1Screen = () => {
-  const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState([]);
 
-  useEffect(() => {
-    const fetchStudents = () => {
-      db.transaction(tx => {
-        tx.executeSql(
-          `SELECT * FROM assessmentsScores WHERE totalScore > 15`,
-          [],
-          (_, { rows }) => {
-            setStudents(rows._array);
-          },
-          (_, error) => {
-            console.error(error);
-          }
-        );
-      });
-    };
+    useEffect(() => {
+        const fetchStudents = () => {
+            db.transaction(tx => {
+                tx.executeSql(
+                    `SELECT * FROM carAppScores WHERE totalScore > 15`,
+                    [],
+                    (_, { rows }) => {
+                        setStudents(rows._array);
+                    },
+                    (_, error) => {
+                        console.error(error);
+                    }
+                );
+            });
+        };
 
-    fetchStudents();
-  }, []);
+        fetchStudents();
+    }, []);
 
-  return (
-    <View style={styles.container}>
-      {students.length > 0 ? (
-        <>
-          <Text>Students with Total Score  15:</Text>
-          {students.map(student => (
-            <Text key={student.id}>{student.studentName}</Text>
-          ))}
-        </>
-      ) : (
-        <Text>No students with total score greater than 15.</Text>
-      )}
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <Text style={styles.desc}>This Page shows students who got more than 75% on the Assessment.</Text>
+            {students.length > 0 ? (
+                <Table borderStyle={{ borderWidth: 1, borderColor: '#ccc' }}>
+                <Row
+                  data={['#', 'Student Name', 'Score']}
+                  style={styles.head}
+                  textStyle={styles.text}
+                />
+                {students.map((student, index) => (
+                  <Row
+                    key={student.id}
+                    data={[index + 1, student.studentName, student.totalScore]}
+                    style={styles.row}
+                    textStyle={styles.text}
+                  />
+                ))}
+              </Table>
+
+            ) : (
+                
+                <Text style={styles.alertText}>No students available.</Text>
+            )}
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        padding: 20,
+    },
+    desc: {
+        fontWeight: 'bold',
+        fontSize: 16,
+        marginBottom:10
+    },
+    alertText: {
+            marginTop: '80%',
+            textAlign: 'center'
+    },
+    head: { 
+        height: 40, 
+        backgroundColor: '#f1f8ff' 
+    },
+    text: { 
+        margin: 6 
+    },
+    row: { 
+        height: 30, 
+        backgroundColor: '#f9f9f9' 
+    },
 });
 
 export default Group1Screen;

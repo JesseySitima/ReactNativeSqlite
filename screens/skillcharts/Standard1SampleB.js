@@ -14,7 +14,7 @@ const Standard1SampleB = () => {
         const txResult = await new Promise((resolve, reject) => {
           db.transaction(tx => {
             tx.executeSql(
-              'SELECT * FROM assessmentsScores WHERE standard = ? AND sample = ?;',
+              'SELECT * FROM carAppScores WHERE standard = ? AND sample = ?;',
               ['Standard 2', 'Sample B'],
               (_, result) => resolve(result),
               (_, error) => reject(error)
@@ -53,7 +53,7 @@ const Standard1SampleB = () => {
           />
           <Table borderStyle={{ borderWidth: 1, borderColor: '#ccc' }}>
             <Row
-              data={['Week', 'Student Name', 'Maina a Malembo', 'Maliwu', 'Maphatikizo', 'Mawu']}
+              data={['#', 'Week', 'TeacherName', 'Student Name', 'Maina a Malembo', 'Maliwu', 'Maphatikizo', 'Mawu']}
               style={styles.head}
               textStyle={styles.text}
             />
@@ -62,14 +62,19 @@ const Standard1SampleB = () => {
                 <Row
                   key={index}
                   data={[
+                    index + 1,
                     item.weekKey,
+                    item.teacherName,
                     item.studentName,
                     item.MainaAMalemboScore,
                     item.MaliwuScore,
                     item.MaphatikizoScore,
                     item.MawuScore,
                   ]}
-                  style={[styles.row, index % 2 && { backgroundColor: '#f2f2f2' }]}
+                  style={{
+                    ...styles.row,
+                    ...(index % 2 && { backgroundColor: '#f2f2f2' }),
+                  }}
                   textStyle={styles.text}
                 />
               ))
